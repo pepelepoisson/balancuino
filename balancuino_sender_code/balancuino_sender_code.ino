@@ -57,13 +57,13 @@ void setup() {
 byte message[32];
 
 void loop() {
-  Serial.println("eil");
+  //Serial.println("New loop");
   delay(200);
   getInput();
-  Serial.print("joystickTilt: ");
-  Serial.print(joystickTilt);
-  Serial.print("  joystickWobble: ");
-  Serial.println(joystickWobble);  
+  //Serial.print("joystickTilt: ");
+  //Serial.print(joystickTilt);
+  //Serial.print("  joystickWobble: ");
+  //Serial.println(joystickWobble);  
   
   // Read Joystics positions into message table
   message[0]=map(joystickTilt,-100,100,0,255);
@@ -78,7 +78,7 @@ void loop() {
   // Send message using nrf24L01 and Mirf librairy
   Mirf.send((byte *) &message);
     while(Mirf.isSending()){
-      Serial.println("r");
+      //Serial.println("Sending message");
   }
 }
 
